@@ -3,6 +3,20 @@ def gv
 pipeline {
     agent any
 
+    parameters {
+        string(
+            name: 'VERSION',
+            defaultValue: '1.1.0',
+            description: 'Application version'
+        )
+
+        booleanParam(
+            name: 'executeTests',
+            defaultValue: true,
+            description: 'Execute pipeline tests'
+        )
+    }
+
     stages {
         stage('init') {
             steps {
@@ -21,6 +35,12 @@ pipeline {
         }
 
         stage('test') {
+            when {
+                expression {
+                    params.executeTests
+                }
+            }
+
             steps {
                 script {
                     gv.testApp()
