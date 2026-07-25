@@ -1,54 +1,42 @@
-# Jenkins Nexus CI/CD Pipeline
+# Jenkins Multibranch CI/CD Pipeline
 
 ## Overview
 
-This project demonstrates a complete CI/CD pipeline using Jenkins, Maven, Docker, and Nexus Repository Manager.
+Implemented a Jenkins multibranch CI/CD pipeline integrated with GitHub SCM.
 
-## Technologies
-
-- Jenkins
-- Git
-- GitHub
-- Maven
-- Docker
-- Nexus Repository
-- Java
+The pipeline automates application lifecycle stages:
+- Build
+- Test
+- Deploy
 
 ## Architecture
 
-(Add architecture diagram here)
+GitHub Repository
+        |
+        v
+Jenkins Multibranch Pipeline
+        |
+        v
+Jenkinsfile
+        |
+        v
+Groovy Pipeline Functions
+        |
+        +--> Build
+        +--> Test
+        +--> Deploy
 
-## Pipeline Flow
+## Technologies
 
-1. Developer pushes code to GitHub
-2. Jenkins detects changes
-3. Jenkins checks out the source code
-4. Maven builds the application
-5. Unit tests execute
-6. Artifact is uploaded to Nexus
-7. Docker image is built
-8. Image is pushed to the registry
+- Jenkins 2.555.1
+- GitHub
+- Groovy
+- Docker
+- Nexus Repository
+- Maven
 
-## Repository Structure
+## Key Engineering Lessons
 
-```text
-.
-├── Jenkinsfile
-├── BasicJenkinsfile
-├── Dockerfile
-├── pom.xml
-├── src/
-├── docs/
-├── diagrams/
-└── screenshots/
-```
-
-## Lessons Learned
-
-- Creating Jenkins Pipelines
-- Multibranch Pipelines
-- Jenkins Credentials
-- Nexus Integration
-- Docker Builds
-- Git Repository Organization
-- Troubleshooting Jenkins Git Cache Issues
+- Jenkins Script Path determines which pipeline file executes
+- Multibranch pipelines dynamically discover Git branches
+- Shared Groovy functions improve pipeline reuse
