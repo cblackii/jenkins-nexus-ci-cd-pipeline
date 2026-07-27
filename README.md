@@ -34,6 +34,8 @@ Groovy Pipeline Functions
 - Docker
 - Nexus Repository
 - Maven
+- Java 25
+- Spring Boot 3.5.5
 
 ## Key Engineering Lessons
 
